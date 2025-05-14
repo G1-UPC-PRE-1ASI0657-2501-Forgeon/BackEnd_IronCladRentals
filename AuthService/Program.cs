@@ -20,7 +20,6 @@ using IronClead.SharedKernel.Shared.Infraestructure.Persistences.EFC.Repositorie
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔐 JWT Configuration
 var jwtSettings = builder.Configuration.GetSection("TokenSettings");
 builder.Services.Configure<TokenSettings>(jwtSettings);
 
@@ -38,11 +37,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
-            NameClaimType = ClaimTypes.NameIdentifier, // ✅ para .NET
-            RoleClaimType = ClaimTypes.Role            // ✅ para [Authorize(Roles = ...)]
+            NameClaimType = ClaimTypes.NameIdentifier, 
+            RoleClaimType = ClaimTypes.Role            
         };
 
-        // Leer token desde la cookie "AuthToken"
         options.Events = new JwtBearerEvents
         {
             OnMessageReceived = context =>

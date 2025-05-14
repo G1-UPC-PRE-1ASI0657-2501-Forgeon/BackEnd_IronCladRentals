@@ -58,11 +58,11 @@ public class AppDbContext : DbContext
         });
 
         // MODEL
-        modelBuilder.Entity<Model>(entity =>
-        {
-            entity.HasKey(m => m.Id);
-            entity.Property(m => m.CarModel).IsRequired().HasMaxLength(40);
-        });
+        modelBuilder.Entity<Model>()
+            .HasOne(m => m.Brand)
+            .WithMany(b => b.Models)
+            .HasForeignKey(m => m.BrandId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // COMPANY
         modelBuilder.Entity<Company>(entity =>

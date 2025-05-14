@@ -178,7 +178,6 @@ foreach (var address in serverAddresses.Addresses)
     Console.WriteLine($"Listening on {address}");
 }
 
-// Ensure Database is Created
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -186,7 +185,6 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
-// Configure Middleware Pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -4,6 +4,9 @@ public class Brand
 {
     public int Id { get; private set; }
     public string BrandName { get; private set; } = null!;
+    
+    public ICollection<Model> Models { get; private set; } = new List<Model>();
+
 
     protected Brand() { }
 

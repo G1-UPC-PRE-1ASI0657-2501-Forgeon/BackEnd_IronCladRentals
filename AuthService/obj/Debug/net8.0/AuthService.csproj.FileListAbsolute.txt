@@ -122,3 +122,4 @@ E:\IronCleadRentals\AuthService\obj\Debug\net8.0\refint\AuthService.dll
 E:\IronCleadRentals\AuthService\obj\Debug\net8.0\AuthService.pdb
 E:\IronCleadRentals\AuthService\obj\Debug\net8.0\AuthService.genruntimeconfig.cache
 E:\IronCleadRentals\AuthService\obj\Debug\net8.0\ref\AuthService.dll
+E:\IronCleadRentals\AuthService\obj\Debug\net8.0\AuthService.sourcelink.json
