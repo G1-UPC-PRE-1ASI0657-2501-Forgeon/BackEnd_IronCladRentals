@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+#
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleService", "VehicleService\VehicleService.csproj", "{9E761EA9-F481-4D86-8749-D8972CD61755}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "AuthService\AuthService.csproj", "{1096D049-D16D-4142-875E-356266CDFD41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronClead.SharedKernel", "IronClead.SharedKernel\IronClead.SharedKernel.csproj", "{39A57691-DF46-4298-85BF-EA9E230351B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E761EA9-F481-4D86-8749-D8972CD61755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E761EA9-F481-4D86-8749-D8972CD61755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E761EA9-F481-4D86-8749-D8972CD61755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E761EA9-F481-4D86-8749-D8972CD61755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1096D049-D16D-4142-875E-356266CDFD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1096D049-D16D-4142-875E-356266CDFD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1096D049-D16D-4142-875E-356266CDFD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1096D049-D16D-4142-875E-356266CDFD41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A57691-DF46-4298-85BF-EA9E230351B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A57691-DF46-4298-85BF-EA9E230351B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A57691-DF46-4298-85BF-EA9E230351B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A57691-DF46-4298-85BF-EA9E230351B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

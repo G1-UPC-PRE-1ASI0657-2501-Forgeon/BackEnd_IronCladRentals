@@ -1,0 +1,14 @@
+E:\IronCleadRentals\IronClead.SharedKernel\bin\Debug\net8.0\IronClead.SharedKernel.deps.json
+E:\IronCleadRentals\IronClead.SharedKernel\bin\Debug\net8.0\IronClead.SharedKernel.runtimeconfig.json
+E:\IronCleadRentals\IronClead.SharedKernel\bin\Debug\net8.0\IronClead.SharedKernel.dll
+E:\IronCleadRentals\IronClead.SharedKernel\bin\Debug\net8.0\IronClead.SharedKernel.pdb
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.csproj.AssemblyReference.cache
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.AssemblyInfoInputs.cache
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.AssemblyInfo.cs
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.csproj.CoreCompileInputs.cache
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.dll
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\refint\IronClead.SharedKernel.dll
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.pdb
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.genruntimeconfig.cache
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\ref\IronClead.SharedKernel.dll
