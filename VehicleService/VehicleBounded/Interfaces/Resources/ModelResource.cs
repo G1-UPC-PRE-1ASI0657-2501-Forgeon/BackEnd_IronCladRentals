@@ -1,3 +1,3 @@
 ﻿namespace VehicleService.VehicleBounded.Interfaces.Resources;
 
-public record ModelResource(int Id, string CarModel, int BrandId);
+public record ModelResource(string CarModel, int BrandId);

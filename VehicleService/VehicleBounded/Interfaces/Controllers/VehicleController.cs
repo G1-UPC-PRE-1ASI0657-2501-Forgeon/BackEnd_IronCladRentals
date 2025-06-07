@@ -44,7 +44,7 @@ public class VehicleController(
     }
 
     // 🔐 Solo usuarios autenticados con rol "Company"
-    [Authorize(Roles = "Company")]
+    [Authorize(Roles = "True")]
     [HttpPost]
     public async Task<IActionResult> CreateVehicle([FromBody] VehicleResource resource)
     {
@@ -54,12 +54,9 @@ public class VehicleController(
         if (company == null)
             return BadRequest("No tienes una empresa registrada.");
 
-        var vehicle = new Vehicle(
-            resource.Passengers,
-            resource.LuggageCapacity,
-            resource.ModelId,
-            resource.BrandId
-        );
+        var vehicle = VehicleTransform.ToEntityFromResource(resource);
+        vehicle.SetCompany(company.Id); // Por si CompanyId viene vacío o ignoras el del request
+
 
         vehicle.SetCompany(company.Id); // 🔗 Aquí se vincula con la empresa
 
@@ -74,7 +71,7 @@ public class VehicleController(
     }
 
 
-    [Authorize(Roles = "Company")]
+    [Authorize(Roles = "true")]
     [HttpPut("{vehicleId:int}")]
     public async Task<IActionResult> UpdateVehicle(int vehicleId, [FromBody] VehicleResource resource)
     {

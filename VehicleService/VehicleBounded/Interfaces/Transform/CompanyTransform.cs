@@ -6,5 +6,5 @@ namespace VehicleService.VehicleBounded.Interfaces.Transform;
 public static class CompanyTransform
 {
     public static CompanyResource ToResourceFromEntity(Company company) =>
-        new(company.Id, company.Name, company.RUC);
+        new(company.Name, company.RUC);
 }

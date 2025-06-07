@@ -12,3 +12,4 @@ E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\refint\IronClead.Sha
 E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.pdb
 E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.genruntimeconfig.cache
 E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\ref\IronClead.SharedKernel.dll
+E:\IronCleadRentals\IronClead.SharedKernel\obj\Debug\net8.0\IronClead.SharedKernel.sourcelink.json
