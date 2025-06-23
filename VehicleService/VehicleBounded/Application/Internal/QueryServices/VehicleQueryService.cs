@@ -16,7 +16,7 @@ public class VehicleQueryService : IVehicleQueryService
     public async Task<IEnumerable<Vehicle>> GetAvailableVehiclesAsync(DateTime startDate, DateTime endDate, string? city = null)
     {
         var availableVehicles = await _vehicleRepository.SearchAvailableVehiclesAsync(startDate, endDate);
-        
+            
 
         return availableVehicles;
     }

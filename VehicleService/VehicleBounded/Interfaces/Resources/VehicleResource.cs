@@ -15,7 +15,10 @@ public record VehicleResource(
     decimal Latitude,
     decimal Longitude,
     int ModelId,
+    string ModelName,
     int BrandId,
+    string BrandName,
     int CompanyId,
+    string CompanyName,
     PricingResource Pricing
 );

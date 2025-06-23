@@ -20,8 +20,11 @@ public static class VehicleTransform
             vehicle.Latitude,
             vehicle.Longitude,
             vehicle.ModelId,
+            vehicle.Model?.CarModel,
             vehicle.BrandId,
+            vehicle.Brand?.BrandName,
             vehicle.CompanyId,
+            vehicle.Company?.Name,
             PricingTransform.ToResourceFromEntity(vehicle.Pricing)
         );
 

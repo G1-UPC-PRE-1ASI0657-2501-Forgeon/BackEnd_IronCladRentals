@@ -97,6 +97,9 @@ public class VehicleRepository : IVehicleRepository
         // Lógica de disponibilidad (placeholder: todos los vehículos están disponibles)
         return await _context.Vehicles
             .Include(v => v.Pricing)
+            .Include(v => v.Company)
+            .Include(v => v.Brand)
+            .Include(v => v.Model)
             .ToListAsync();
     }
 

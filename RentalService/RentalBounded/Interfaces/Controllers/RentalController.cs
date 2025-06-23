@@ -1,11 +1,15 @@
 ﻿using System.Net.Mime;
 using System.Security.Claims;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RentalService.RentalBounded.Domain.Model.Aggregates;
 using RentalService.RentalBounded.Domain.Services;
 using RentalService.RentalBounded.Interfaces.Resources;
+using RentalService.RentalBounded.Interfaces.Resources.Vehicle;
 using RentalService.RentalBounded.Interfaces.Transform;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace RentalService.RentalBounded.Interfaces.Controllers;
 
@@ -51,7 +55,8 @@ public class RentalController(
     {
         var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
-        var rental = new Rental(userId, resource.VehicleId, resource.StartDate, resource.EndDate, "Pending", resource.TotalPrice);
+        var rental = new Rental(userId, resource.VehicleId, resource.StartDate, resource.EndDate, "Pending",
+            resource.TotalPrice);
         var created = await rentalCommandService.CreateRentalAsync(rental);
 
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, RentalTransform.ToResourceFromEntity(created));
@@ -80,4 +85,37 @@ public class RentalController(
         await rentalCommandService.ExtendRentalAsync(id, newEndDate);
         return NoContent();
     }
+
+    [Authorize]
+    [HttpGet("rentalinformationvehicle/{id}")]
+    public async Task<IActionResult> GetRentalInformationVehicle(Guid id)
+    {
+        var rental = await rentalQueryService.GetByIdAsync(id);
+        if (rental is null){return NotFound("Rental not found");}
+        
+        using var httpClient = new HttpClient();
+        var response = await httpClient.GetAsync($"http://localhost:5162/api/v1/vehicle/{rental.VehicleId}");
+
+        if (!response.IsSuccessStatusCode) {return StatusCode(StatusCodes.Status500InternalServerError, "Error al obtener los datos del vehiculo");}
+
+        
+        var vehicleJson = await response.Content.ReadAsStringAsync();
+        var vehicleData = JsonSerializer.Deserialize<VehicleResource>(vehicleJson,new JsonSerializerOptions {PropertyNameCaseInsensitive = true} );
+
+        var result = new RentalWithVehicleResource
+        {
+            RentalId = rental.Id,
+            AuthUserId = rental.UserId,
+            VehicleId = vehicleData.Id,
+            RentalStatus = rental.RentalStatus,
+            StartDate = rental.StartDate,
+            EndDate = rental.EndDate,
+            BrandName = vehicleData.BrandName,
+            ModelName = vehicleData.ModelName,
+            Color = vehicleData.Color,
+            LicensePlate = vehicleData.LicensePlate
+        };
+        return Ok(result); 
+    }
+
 }
