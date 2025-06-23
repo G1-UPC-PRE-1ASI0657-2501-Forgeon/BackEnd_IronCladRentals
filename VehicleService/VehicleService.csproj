@@ -35,4 +35,8 @@
       <ProjectReference Include="..\IronClead.SharedKernel\IronClead.SharedKernel.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\uploads\" />
+    </ItemGroup>
+
 </Project>

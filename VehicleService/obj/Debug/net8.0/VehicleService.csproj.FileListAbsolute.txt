@@ -178,3 +178,4 @@ E:\IronCleadRentals\VehicleService\obj\Debug\net8.0\VehicleService.pdb
 E:\IronCleadRentals\VehicleService\obj\Debug\net8.0\VehicleService.genruntimeconfig.cache
 E:\IronCleadRentals\VehicleService\obj\Debug\net8.0\ref\VehicleService.dll
 E:\IronCleadRentals\VehicleService\obj\Debug\net8.0\VehicleService.sourcelink.json
+E:\IronCleadRentals\VehicleService\bin\Debug\net8.0\VehicleService.staticwebassets.runtime.json

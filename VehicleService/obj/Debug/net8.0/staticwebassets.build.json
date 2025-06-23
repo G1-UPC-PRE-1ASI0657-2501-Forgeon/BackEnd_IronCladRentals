@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "r6OMmYFdk2rNT6J2+pRhI29C9G0A4rgsMflk2Rf3r5A=",
+  "Hash": "oRT2Bh0ZOsoBi7Y/96hyfXmoiI/j326R1kbfu/2HM8c=",
   "Source": "VehicleService",
   "BasePath": "_content/VehicleService",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "VehicleService\\wwwroot",
+      "Source": "VehicleService",
+      "ContentRoot": "E:\\IronCleadRentals\\VehicleService\\wwwroot\\",
+      "BasePath": "_content/VehicleService",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

@@ -46,19 +46,52 @@ public class VehicleController(
     // 🔐 Solo usuarios autenticados con rol "Company"
     [Authorize(Roles = "True")]
     [HttpPost]
-    public async Task<IActionResult> CreateVehicle([FromBody] VehicleResource resource)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> CreateVehicle([FromForm] VehicleFormResource resource, IFormFile image)
     {
-        var authUserId = GetAuthenticatedUserId(); // Obtener el ID del usuario autenticado desde el JWT
-        var company = await companyRepository.GetByUserIdAsync(authUserId); // Buscar la empresa asociada
-
+        var authUserId = GetAuthenticatedUserId();
+        var company = await companyRepository.GetByUserIdAsync(authUserId);
         if (company == null)
             return BadRequest("No tienes una empresa registrada.");
 
-        var vehicle = VehicleTransform.ToEntityFromResource(resource);
-        vehicle.SetCompany(company.Id); // Por si CompanyId viene vacío o ignoras el del request
+        string imagePath = string.Empty;
 
+        // ✅ Guardar imagen en disco
+        if (image != null && image.Length > 0)
+        {
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(image.FileName)}";
+            var directory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            Directory.CreateDirectory(directory); // crea si no existe
 
-        vehicle.SetCompany(company.Id); // 🔗 Aquí se vincula con la empresa
+            var fullPath = Path.Combine(directory, fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+
+            // Ruta accesible por frontend (ej: http://localhost:5000/uploads/nombre.jpg)
+            imagePath = $"/uploads/{fileName}";
+        }
+
+        // Convertir a entidad y setear imagen
+        var vehicle = new Vehicle(
+            resource.Passengers,
+            resource.LuggageCapacity,
+            resource.LicensePlate,
+            resource.Color,
+            resource.Year,
+            resource.Transmission,
+            resource.FuelType,
+            imagePath,
+            resource.Address,
+            resource.City,
+            resource.Country,
+            resource.Latitude,
+            resource.Longitude,
+            resource.ModelId,
+            resource.BrandId,
+            company.Id
+        );
 
         if (resource.Pricing != null)
         {
@@ -66,7 +99,6 @@ public class VehicleController(
         }
 
         var created = await vehicleCommandService.CreateVehicleAsync(vehicle);
-
         return CreatedAtAction(nameof(GetVehicleDetails), new { vehicleId = created.Id }, VehicleTransform.ToResourceFromEntity(created));
     }
 
