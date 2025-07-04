@@ -6666,20 +6666,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erick\\.nuget\\packages\\": {}
+    "C:\\Users\\Erick\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\IronCleadRentals\\RentalService\\RentalService.csproj",
+      "projectUniqueName": "C:\\BackEnd_IronCladRentals\\RentalService\\RentalService.csproj",
       "projectName": "RentalService",
-      "projectPath": "E:\\IronCleadRentals\\RentalService\\RentalService.csproj",
-      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "E:\\IronCleadRentals\\RentalService\\obj\\",
+      "projectPath": "C:\\BackEnd_IronCladRentals\\RentalService\\RentalService.csproj",
+      "packagesPath": "C:\\Users\\Erick\\.nuget\\packages\\",
+      "outputPath": "C:\\BackEnd_IronCladRentals\\RentalService\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
-        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Erick\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -6691,8 +6690,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\IronCleadRentals\\IronClead.SharedKernel\\IronClead.SharedKernel.csproj": {
-              "projectPath": "E:\\IronCleadRentals\\IronClead.SharedKernel\\IronClead.SharedKernel.csproj"
+            "C:\\BackEnd_IronCladRentals\\IronClead.SharedKernel\\IronClead.SharedKernel.csproj": {
+              "projectPath": "C:\\BackEnd_IronCladRentals\\IronClead.SharedKernel\\IronClead.SharedKernel.csproj"
             }
           }
         }
@@ -6796,7 +6795,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Erick\\.dotnet\\sdk\\8.0.411/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

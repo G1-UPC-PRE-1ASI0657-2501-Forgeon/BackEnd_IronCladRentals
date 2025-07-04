@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IronClead.SharedKernel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c402ef5a9afead5c7bf2efd4b7beccda2c3a07a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d6f5c7f7ba77367ce791d90fd94587f5907dcb3")]
 [assembly: System.Reflection.AssemblyProductAttribute("IronClead.SharedKernel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IronClead.SharedKernel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

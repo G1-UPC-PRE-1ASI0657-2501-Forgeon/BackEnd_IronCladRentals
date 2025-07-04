@@ -42,4 +42,20 @@ public class CompanyController(ICompanyCommandService commandService,ICompanyQue
 
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, CompanyTransform.ToResourceFromEntity(created));
     }
+
+    [HttpGet("me")]
+    [Authorize(Roles = "True")]
+    public async Task<IActionResult> GetCompanyByAuthUserId()
+    {
+        var authUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(authUserId)) return Unauthorized();
+        
+        if (!Guid.TryParse(authUserId, out var userId))
+            return BadRequest("Invalid user ID format.");
+        
+        var company = await queryService.GetByUserIdAsync(userId);
+        if (company == null) return NotFound();
+
+        return Ok(CompanyTransform.ToResourceFromEntity(company));
+    }
 }

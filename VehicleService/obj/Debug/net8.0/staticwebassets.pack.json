@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\BackEnd_IronCladRentals\\VehicleService\\wwwroot\\uploads\\72b60de5-0cad-45bd-90ec-caa5dd4d8de7.jpg",
+      "PackagePath": "staticwebassets\\uploads\\72b60de5-0cad-45bd-90ec-caa5dd4d8de7.jpg"
+    },
+    {
+      "Id": "C:\\BackEnd_IronCladRentals\\VehicleService\\wwwroot\\uploads\\7aa60358-3f39-4b90-8fc2-8b3da0b52d2a.jpg",
+      "PackagePath": "staticwebassets\\uploads\\7aa60358-3f39-4b90-8fc2-8b3da0b52d2a.jpg"
+    },
+    {
+      "Id": "C:\\BackEnd_IronCladRentals\\VehicleService\\wwwroot\\uploads\\fd28797b-df19-4a10-94ae-cd3b2b79ef56.png",
+      "PackagePath": "staticwebassets\\uploads\\fd28797b-df19-4a10-94ae-cd3b2b79ef56.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.VehicleService.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.VehicleService.props",
+      "PackagePath": "build\\VehicleService.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.VehicleService.props",
+      "PackagePath": "buildMultiTargeting\\VehicleService.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.VehicleService.props",
+      "PackagePath": "buildTransitive\\VehicleService.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

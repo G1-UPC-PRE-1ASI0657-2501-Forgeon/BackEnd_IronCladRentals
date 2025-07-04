@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = IronClead.SharedKernel
-build_property.ProjectDir = E:\IronCleadRentals\IronClead.SharedKernel\
+build_property.ProjectDir = C:\BackEnd_IronCladRentals\IronClead.SharedKernel\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
