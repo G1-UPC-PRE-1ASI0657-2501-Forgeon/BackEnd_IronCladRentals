@@ -36,6 +36,13 @@ public class RentalRepository(AppDbContext context) : IRentalRepository
             .Where(r => r.VehicleId == vehicleId)
             .ToListAsync();
     }
+    
+    public async Task<IEnumerable<Rental>> GetByCompanyIdAsync(int companyId)
+    {
+        return await context.Rentals
+            .Where(r => r.CompanyId == companyId)
+            .ToListAsync();
+    }
 
     public async Task<Rental> Update(Rental rental)
     {

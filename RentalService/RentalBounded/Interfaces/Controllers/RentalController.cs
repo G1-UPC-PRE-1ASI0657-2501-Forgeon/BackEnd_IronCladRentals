@@ -51,18 +51,44 @@ public class RentalController(
 
     [Authorize]
     [HttpPost]
-    [HttpPost]
     public async Task<IActionResult> CreateRental([FromBody] RentalResourceCreate resource)
     {
         var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
+        // 1️⃣ Obtener datos del vehículo llamando al microservicio Vehicle
+        using var httpClient = new HttpClient();
+
+        // ⚠️ Cambia esta URL por la real de tu microservicio de vehicle
+        var vehicleServiceUrl = $"http://localhost:5162/api/v1/vehicle/{resource.VehicleId}";
+        var vehicleResponse = await httpClient.GetAsync(vehicleServiceUrl);
+
+        if (!vehicleResponse.IsSuccessStatusCode)
+        {
+            return BadRequest("No se pudo obtener información del vehículo.");
+        }
+
+        var vehicleJson = await vehicleResponse.Content.ReadAsStringAsync();
+        var vehicleData = JsonSerializer.Deserialize<VehicleResource>(vehicleJson, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if (vehicleData == null || vehicleData.CompanyId == null)
+        {
+            return BadRequest("El vehículo no tiene compañía asociada.");
+        }
+
+        // 2️⃣ Mapear tu entidad Rental
         var rental = RentalTransform.ToEntityFromResource(resource);
         rental.UserId = userId;
+        rental.CompanyId = vehicleData.CompanyId; // AQUÍ está la magia 🪄
 
+        // 3️⃣ Guardar
         var created = await rentalCommandService.CreateRentalAsync(rental);
 
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, RentalTransform.ToResourceFromEntity(created));
     }
+
 
     [Authorize]
     [HttpPost("{id:guid}/cancel")]
@@ -170,6 +196,20 @@ public class RentalController(
             .Select(RentalTransform.ToResourceFromEntity);
 
         return Ok(activeRentals);
+    }
+    [Authorize]
+    [HttpGet("company/{companyId}/pending")]
+    public async Task<IActionResult> GetPendingRentalsByCompanyId(int companyId)
+    {
+        // 1️⃣ Obtener todas las rentas de esa compañía
+        var rentals = await rentalQueryService.GetByCompanyIdAsync(companyId);
+
+        // 2️⃣ Filtrar por estado "Pending"
+        var pendingRentals = rentals
+            .Where(r => r.RentalStatus.Equals("Pending", StringComparison.OrdinalIgnoreCase))
+            .Select(RentalTransform.ToResourceFromEntity);
+
+        return Ok(pendingRentals);
     }
 
 

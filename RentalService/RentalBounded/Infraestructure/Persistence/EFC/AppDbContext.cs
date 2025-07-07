@@ -38,6 +38,8 @@ public class AppDbContext : DbContext
 
             entity.Property(r => r.VehicleId)
                 .IsRequired();
+            entity.Property(r => r.CompanyId)
+                .IsRequired();
         });
     }
 }

@@ -4,6 +4,7 @@ public record RentalResource(
     Guid Id,
     Guid UserId,
     int VehicleId,
+    int CompanyId,
     int LocationId,
     DateTime StartDate,
     DateTime EndDate,

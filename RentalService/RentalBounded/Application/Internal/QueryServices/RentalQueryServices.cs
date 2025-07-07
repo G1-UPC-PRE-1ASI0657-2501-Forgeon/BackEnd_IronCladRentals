@@ -25,4 +25,9 @@ public class RentalQueryService(IRentalRepository rentalRepository) : IRentalQue
     {
         return await rentalRepository.GetByVehicleIdAsync(vehicleId);
     }
+    
+    public async Task<IEnumerable<Rental>> GetByCompanyIdAsync(int companyId)
+    {
+        return await rentalRepository.GetByVehicleIdAsync(companyId);
+    }
 }

@@ -6,6 +6,7 @@ public class Rental
     public Guid UserId { get; set; }
     public int VehicleId { get; set; }
     public int LocationId { get; set; }
+    public int CompanyId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public String RentalStatus { get; set; }
@@ -13,10 +14,11 @@ public class Rental
     
     protected Rental() { }
 
-    public Rental(Guid userId, int vehicleId,int locationId, DateTime startDate, DateTime endDate, String rentalStatus,decimal totalPrice)
+    public Rental(Guid userId, int vehicleId,int companyId,int locationId, DateTime startDate, DateTime endDate, String rentalStatus,decimal totalPrice)
     {
         UserId = userId;
         VehicleId = vehicleId;
+        CompanyId = companyId;
         LocationId = locationId;
         StartDate = startDate;
         EndDate = endDate;

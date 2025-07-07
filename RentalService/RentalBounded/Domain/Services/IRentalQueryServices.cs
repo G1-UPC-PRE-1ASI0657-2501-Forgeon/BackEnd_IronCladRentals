@@ -8,4 +8,6 @@ public interface IRentalQueryService
     Task<Rental?> GetByIdAsync(Guid rentalId);
     Task<IEnumerable<Rental>> GetByUserIdAsync(Guid userId);
     Task<IEnumerable<Rental>> GetByVehicleIdAsync(int vehicleId);
+    Task<IEnumerable<Rental>> GetByCompanyIdAsync(int companyId);
+
 }

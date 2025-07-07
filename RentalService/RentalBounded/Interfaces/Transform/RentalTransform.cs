@@ -10,6 +10,7 @@ public static class RentalTransform
             rental.Id,
             rental.UserId,
             rental.VehicleId,
+            rental.CompanyId,
             rental.LocationId,
             rental.StartDate,
             rental.EndDate,
@@ -23,6 +24,7 @@ public static class RentalTransform
         new(
             resource.UserId,
             resource.VehicleId,
+            resource.CompanyId,
             resource.LocationId,
             resource.StartDate,
             resource.EndDate,
