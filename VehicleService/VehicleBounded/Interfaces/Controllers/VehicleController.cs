@@ -83,11 +83,6 @@ public class VehicleController(
             resource.Transmission,
             resource.FuelType,
             imagePath,
-            resource.Address,
-            resource.City,
-            resource.Country,
-            resource.Latitude,
-            resource.Longitude,
             resource.ModelId,
             resource.BrandId,
             company.Id

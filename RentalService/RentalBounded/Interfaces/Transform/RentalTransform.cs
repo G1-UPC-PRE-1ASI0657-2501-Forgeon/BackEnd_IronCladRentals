@@ -10,23 +10,23 @@ public static class RentalTransform
             rental.Id,
             rental.UserId,
             rental.VehicleId,
+            rental.LocationId,
             rental.StartDate,
             rental.EndDate,
             rental.RentalStatus,
             rental.TotalPrice
         );
+    
+    
 
-    public static Rental ToEntityFromResource(RentalResource resource) =>
+    public static Rental ToEntityFromResource(RentalResourceCreate resource) =>
         new(
             resource.UserId,
             resource.VehicleId,
+            resource.LocationId,
             resource.StartDate,
             resource.EndDate,
-            resource.RentalStatus,
-            resource.TotalPrice
-        )
-        {
-            // Si deseas mantener el mismo ID cuando actualices
-            Id = resource.Id
-        };
+            "Pending",
+            0 // O lo que uses como valor inicial
+        );
 }

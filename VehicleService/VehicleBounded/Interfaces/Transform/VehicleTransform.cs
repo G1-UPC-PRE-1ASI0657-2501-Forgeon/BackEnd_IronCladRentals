@@ -6,6 +6,7 @@ public static class VehicleTransform
 {
     public static VehicleResource ToResourceFromEntity(Vehicle vehicle) =>
         new(
+            vehicle.Id,
             vehicle.Passengers,
             vehicle.LuggageCapacity,
             vehicle.LicensePlate,
@@ -14,11 +15,6 @@ public static class VehicleTransform
             vehicle.Transmission,
             vehicle.FuelType,
             vehicle.ImageUrl,
-            vehicle.Address,
-            vehicle.City,
-            vehicle.Country,
-            vehicle.Latitude,
-            vehicle.Longitude,
             vehicle.ModelId,
             vehicle.Model?.CarModel,
             vehicle.BrandId,
@@ -39,11 +35,6 @@ public static class VehicleTransform
         resource.Transmission,
         resource.FuelType,
         resource.ImageUrl,
-        resource.Address,
-        resource.City,
-        resource.Country,
-        resource.Latitude,
-        resource.Longitude,
         resource.ModelId,
         resource.BrandId,
         resource.CompanyId // ← este campo también lo necesitas en tu resource si no está aún

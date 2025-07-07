@@ -82,6 +82,11 @@ public class AppDbContext : DbContext
             entity.Property(l => l.LocationStatus).IsRequired().HasMaxLength(50);
             entity.Property(l => l.Latitude).IsRequired();
             entity.Property(l => l.Longitude).IsRequired();
+            
+            entity.HasOne(l => l.Company)
+                .WithMany(c => c.Locations)
+                .HasForeignKey(l => l.CompanyId)
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
        

@@ -9,10 +9,12 @@ public class Location
     public string LocationStatus { get; private set; } = null!;
     public decimal Latitude { get; private set; }
     public decimal Longitude { get; private set; }
-
+    
+    public int CompanyId { get; private set; }
+    public Company Company { get; private set; }
     protected Location() { }
 
-    public Location(string address, string city, string country, string status, decimal latitude, decimal longitude)
+    public Location(string address, string city, string country, string status, decimal latitude, decimal longitude,int companyId)
     {
         Address = address;
         City = city;
@@ -20,6 +22,7 @@ public class Location
         LocationStatus = status;
         Latitude = latitude;
         Longitude = longitude;
+        CompanyId = companyId;
     }
     public void UpdateDetails(string address, string city, string country, string status, decimal latitude, decimal longitude)
     {

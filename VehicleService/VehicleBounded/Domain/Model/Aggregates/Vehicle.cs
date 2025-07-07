@@ -13,11 +13,6 @@ public class Vehicle
     public string Transmission { get; private set; } = string.Empty;
     public string FuelType { get; private set; } = string.Empty;
     public string ImageUrl { get; private set; } = string.Empty;
-    public string Address { get; private set; }
-    public string City { get; private set; }
-    public string Country { get; private set; }
-    public decimal Latitude { get; private set; }
-    public decimal Longitude { get; private set; }
     public int ModelId { get; private set; }
     public Entities.Model Model { get; private set; }
 
@@ -41,11 +36,7 @@ public class Vehicle
         string transmission,
         string fuelType,
         string imageUrl,
-        string address,
-        string city,
-        string country,
-        decimal latitude,
-        decimal longitude,
+
         int modelId,
         int brandId,
         int companyId)
@@ -58,11 +49,6 @@ public class Vehicle
         Transmission = transmission;
         FuelType = fuelType;
         ImageUrl = imageUrl;
-        Address = address;
-        City = city;
-        Country = country;
-        Latitude = latitude;
-        Longitude = longitude;
         ModelId = modelId;
         BrandId = brandId;
         CompanyId = companyId;
@@ -83,11 +69,6 @@ public class Vehicle
         string transmission,
         string fuelType,
         string imageUrl,
-        string address,
-        string city,
-        string country,
-        decimal latitude,
-        decimal longitude,
         int modelId,
         int brandId,
         int companyId)
@@ -100,11 +81,6 @@ public class Vehicle
         Transmission = transmission;
         FuelType = fuelType;
         ImageUrl = imageUrl;
-        Address = address;
-        City = city;
-        Country = country;
-        Latitude = latitude;
-        Longitude = longitude;
         ModelId = modelId;
         BrandId = brandId;
         CompanyId = companyId;

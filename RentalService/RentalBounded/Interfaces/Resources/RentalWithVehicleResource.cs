@@ -5,6 +5,7 @@ public class RentalWithVehicleResource
     public Guid RentalId { get; set; }
     public Guid AuthUserId { get; set; }
     public int VehicleId { get; set; }
+    public int LocationId { get; set; }
     public string RentalStatus { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }

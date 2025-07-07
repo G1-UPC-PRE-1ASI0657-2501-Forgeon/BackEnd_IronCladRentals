@@ -51,12 +51,14 @@ public class RentalController(
 
     [Authorize]
     [HttpPost]
-    public async Task<IActionResult> CreateRental([FromBody] RentalResource resource)
+    [HttpPost]
+    public async Task<IActionResult> CreateRental([FromBody] RentalResourceCreate resource)
     {
         var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
-        var rental = new Rental(userId, resource.VehicleId, resource.StartDate, resource.EndDate, "Pending",
-            resource.TotalPrice);
+        var rental = RentalTransform.ToEntityFromResource(resource);
+        rental.UserId = userId;
+
         var created = await rentalCommandService.CreateRentalAsync(rental);
 
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, RentalTransform.ToResourceFromEntity(created));
@@ -67,6 +69,14 @@ public class RentalController(
     public async Task<IActionResult> Cancel(Guid id)
     {
         await rentalCommandService.CancelRentalAsync(id);
+        return NoContent();
+    }
+
+    [Authorize]
+    [HttpPost("{id:guid}/confirm")]
+    public async Task<IActionResult> Confirm(Guid id)
+    {
+        await rentalCommandService.ConfirmRentalAsync(id);
         return NoContent();
     }
 
@@ -117,5 +127,50 @@ public class RentalController(
         };
         return Ok(result); 
     }
+    
+    [Authorize]
+    [HttpGet("me/active")]
+    public async Task<IActionResult> GetMyActiveRentals()
+    {
+        // Tomar el userId del JWT
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userIdClaim == null)
+            return Unauthorized();
+
+        var userId = Guid.Parse(userIdClaim);
+
+        // Obtener todas las rentas del usuario
+        var rentals = await rentalQueryService.GetByUserIdAsync(userId);
+
+        // Filtrar solo las activas
+        var activeRentals = rentals
+            .Where(r => r.RentalStatus.Equals("Confirmed", StringComparison.OrdinalIgnoreCase))
+            .Select(RentalTransform.ToResourceFromEntity);
+
+        return Ok(activeRentals);
+    }
+    
+    [Authorize]
+    [HttpGet("me/pending")]
+    public async Task<IActionResult> GetMyPendingRentals()
+    {
+        // Tomar el userId del JWT
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userIdClaim == null)
+            return Unauthorized();
+
+        var userId = Guid.Parse(userIdClaim);
+
+        // Obtener todas las rentas del usuario
+        var rentals = await rentalQueryService.GetByUserIdAsync(userId);
+
+        // Filtrar solo las activas
+        var activeRentals = rentals
+            .Where(r => r.RentalStatus.Equals("Pending", StringComparison.OrdinalIgnoreCase))
+            .Select(RentalTransform.ToResourceFromEntity);
+
+        return Ok(activeRentals);
+    }
+
 
 }

@@ -39,6 +39,17 @@ public class RentalCommandService(IRentalRepository rentalRepository) : IRentalC
         await rentalRepository.Update(rental);
         return true;
     }
+    
+    public async Task<bool> ConfirmRentalAsync(Guid rentalId)
+    {
+        var rental = await rentalRepository.GetByIdAsync(rentalId);
+        if (rental == null) return false;
+
+        rental.Confirm();
+        await rentalRepository.Update(rental);
+        return true;
+    }
+
 
     public async Task<Rental> UpdateTotalPriceAsync(Guid rentalId, decimal newPrice)
     {

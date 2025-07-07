@@ -22,4 +22,11 @@ public class LocationQueryService : ILocationQueryService
     {
         return await _locationRepository.GetByIdAsync(id);
     }
+    
+    public async Task<IEnumerable<Location>> GetByCompanyIdAsync(int companyId)
+    {
+        return await _locationRepository.GetByCompanyIdAsync(companyId);
+    }
+
+    
 }

@@ -6,4 +6,7 @@ public interface ILocationQueryService
 {
     Task<IEnumerable<Location>> GetAllLocationsAsync();
     Task<Location?> GetLocationByIdAsync(int id);
+    Task<IEnumerable<Location>> GetByCompanyIdAsync(int companyId);
+
+    
 }

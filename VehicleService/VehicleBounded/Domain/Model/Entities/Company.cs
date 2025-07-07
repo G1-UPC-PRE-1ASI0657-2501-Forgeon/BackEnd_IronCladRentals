@@ -7,6 +7,7 @@ public class Company
     public string RUC { get; private set; }
     
     public Guid UserId { get; set; }
+    public List<Location> Locations { get; private set; } = new();
 
     protected Company() { }
 

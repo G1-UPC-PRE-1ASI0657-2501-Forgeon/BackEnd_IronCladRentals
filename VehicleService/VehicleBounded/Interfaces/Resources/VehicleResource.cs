@@ -1,6 +1,7 @@
 ﻿namespace VehicleService.VehicleBounded.Interfaces.Resources;
 
 public record VehicleResource(
+    int VehicleId,
     int Passengers,
     int LuggageCapacity,
     string LicensePlate,
@@ -9,11 +10,6 @@ public record VehicleResource(
     string Transmission,
     string FuelType,
     string ImageUrl,
-    string Address,
-    string City,
-    string Country,
-    decimal Latitude,
-    decimal Longitude,
     int ModelId,
     string ModelName,
     int BrandId,

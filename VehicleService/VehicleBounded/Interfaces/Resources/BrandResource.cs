@@ -1,3 +1,3 @@
 ﻿namespace VehicleService.VehicleBounded.Interfaces.Resources;
 
-public record BrandResource(string BrandName);
+public record BrandResource(int Id,string BrandName);

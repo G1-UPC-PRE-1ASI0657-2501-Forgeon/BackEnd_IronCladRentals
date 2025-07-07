@@ -1,3 +1,3 @@
 ﻿namespace VehicleService.VehicleBounded.Interfaces.Resources;
 
-public record CompanyResource(string Name, string RUC);
+public record CompanyResource(int companyId,string Name, string RUC);

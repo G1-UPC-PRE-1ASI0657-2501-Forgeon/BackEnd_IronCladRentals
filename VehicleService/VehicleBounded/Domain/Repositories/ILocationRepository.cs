@@ -7,4 +7,6 @@ public interface ILocationRepository : IBaseRepository<Location>
 {
     Task<Location?> GetByIdAsync(int id);
     Task<List<Location>> GetAllAsync();
+    Task<List<Location>> GetByCompanyIdAsync(int companyId);
+
 }

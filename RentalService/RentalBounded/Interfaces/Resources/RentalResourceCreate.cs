@@ -1,12 +1,9 @@
 ﻿namespace RentalService.RentalBounded.Interfaces.Resources;
 
-public record RentalResource(
-    Guid Id,
+public record RentalResourceCreate(
     Guid UserId,
     int VehicleId,
     int LocationId,
     DateTime StartDate,
-    DateTime EndDate,
-    string RentalStatus,
-    decimal TotalPrice
+    DateTime EndDate
 );

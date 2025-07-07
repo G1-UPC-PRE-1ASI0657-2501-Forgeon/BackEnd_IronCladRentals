@@ -37,11 +37,6 @@ public class VehicleCommandService : IVehicleCommandService
             updatedVehicle.Transmission,
             updatedVehicle.FuelType,
             updatedVehicle.ImageUrl,
-            updatedVehicle.Address,
-            updatedVehicle.City,
-            updatedVehicle.Country,
-            updatedVehicle.Latitude,
-            updatedVehicle.Longitude,
             updatedVehicle.ModelId,
             updatedVehicle.BrandId,
             updatedVehicle.CompanyId
