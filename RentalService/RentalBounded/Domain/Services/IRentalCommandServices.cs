@@ -9,5 +9,6 @@ public interface IRentalCommandService
     Task<bool> CancelRentalAsync(Guid rentalId);
     Task<bool> CompleteRentalAsync(Guid rentalId);
     Task<bool> ConfirmRentalAsync(Guid rentalId);
+    Task<bool> PaidRentalAsync(Guid rentalId);
     Task<Rental> UpdateTotalPriceAsync(Guid rentalId, decimal newPrice);
 }

@@ -8,4 +8,12 @@ public class VehicleResource
     public string ModelName { get; set; } = default!;
     public string Color { get; set; } = default!;
     public string LicensePlate { get; set; } = default!;
+    public PricingResource pricing { get; set; } = default!;
+}
+
+public class PricingResource
+{
+    public decimal DailyRate { get; set; }
+    public decimal WeeklyRate { get; set; }
+    public decimal Discount { get; set; }
 }

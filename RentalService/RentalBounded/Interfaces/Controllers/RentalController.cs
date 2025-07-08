@@ -105,6 +105,15 @@ public class RentalController(
         await rentalCommandService.ConfirmRentalAsync(id);
         return NoContent();
     }
+    
+    [Authorize]
+    [HttpPost("{id:guid}/paid")]
+    public async Task<IActionResult> Paid(Guid id)
+    {
+        await rentalCommandService.PaidRentalAsync(id);
+        return NoContent();
+    }
+
 
     [Authorize]
     [HttpPost("{id:guid}/complete")]
@@ -149,7 +158,10 @@ public class RentalController(
             BrandName = vehicleData.BrandName,
             ModelName = vehicleData.ModelName,
             Color = vehicleData.Color,
-            LicensePlate = vehicleData.LicensePlate
+            LicensePlate = vehicleData.LicensePlate,
+            Paid = rental.Paid,
+            pricing = vehicleData.pricing.DailyRate,
+
         };
         return Ok(result); 
     }
@@ -211,6 +223,71 @@ public class RentalController(
 
         return Ok(pendingRentals);
     }
+    [Authorize]
+    [HttpGet("me/pending/paid")]
+    public async Task<IActionResult> GetMyPendingAndPaidRentals()
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userIdClaim == null)
+            return Unauthorized();
+
+        var userId = Guid.Parse(userIdClaim);
+
+        var rentals = await rentalQueryService.GetByUserIdAsync(userId);
+
+        var result = rentals
+            .Where(r => r.RentalStatus.Equals("Pending", StringComparison.OrdinalIgnoreCase) && r.Paid)
+            .Select(RentalTransform.ToResourceFromEntity);
+
+        return Ok(result);
+    }
+    [Authorize]
+    [HttpGet("me/pending/unpaid")]
+    public async Task<IActionResult> GetMyPendingAndUnpaidRentals()
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userIdClaim == null)
+            return Unauthorized();
+
+        var userId = Guid.Parse(userIdClaim);
+
+        var rentals = await rentalQueryService.GetByUserIdAsync(userId);
+
+        var result = rentals
+            .Where(r => r.RentalStatus.Equals("Pending", StringComparison.OrdinalIgnoreCase) && !r.Paid)
+            .Select(RentalTransform.ToResourceFromEntity);
+
+        return Ok(result);
+    }
+    
+    [Authorize]
+    [HttpGet("company/{companyId}/pending/paid")]
+    public async Task<IActionResult> GetCompanyPendingAndPaid(int companyId)
+    {
+        var rentals = await rentalQueryService.GetByCompanyIdAsync(companyId);
+
+        var result = rentals
+            .Where(r => r.RentalStatus.Equals("Pending", StringComparison.OrdinalIgnoreCase) && r.Paid)
+            .Select(RentalTransform.ToResourceFromEntity);
+
+        return Ok(result);
+    }
+
+    
+    [Authorize]
+    [HttpGet("company/{companyId}/pending/unpaid")]
+    public async Task<IActionResult> GetCompanyPendingAndUnpaid(int companyId)
+    {
+        var rentals = await rentalQueryService.GetByCompanyIdAsync(companyId);
+
+        var result = rentals
+            .Where(r => r.RentalStatus.Equals("Pending", StringComparison.OrdinalIgnoreCase) && !r.Paid)
+            .Select(RentalTransform.ToResourceFromEntity);
+
+        return Ok(result);
+    }
+
+
 
 
 }

@@ -14,5 +14,7 @@ public class RentalWithVehicleResource
     public string ModelName { get; set; }
     public string Color { get; set; }
     public string LicensePlate { get; set; }
+    public bool Paid { get; set; }
+    public decimal pricing { get; set; }
     
 }

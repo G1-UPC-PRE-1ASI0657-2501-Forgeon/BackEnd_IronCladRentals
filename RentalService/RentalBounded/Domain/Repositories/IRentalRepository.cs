@@ -9,6 +9,7 @@ public interface IRentalRepository
     Task<IEnumerable<Rental>> GetByUserIdAsync(Guid userId);
     Task<IEnumerable<Rental>> GetByVehicleIdAsync(int vehicleId);
     Task<IEnumerable<Rental>> GetByCompanyIdAsync(int companyId);
+    
 
     Task<Rental> AddAsync(Rental rental);
     Task<Rental> Update(Rental rental);

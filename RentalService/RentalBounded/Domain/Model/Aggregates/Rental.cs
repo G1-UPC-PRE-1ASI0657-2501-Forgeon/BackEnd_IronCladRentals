@@ -11,10 +11,10 @@ public class Rental
     public DateTime EndDate { get; set; }
     public String RentalStatus { get; set; }
     public decimal TotalPrice { get; set; }
-    
+    public bool Paid { get; set; }
     protected Rental() { }
 
-    public Rental(Guid userId, int vehicleId,int companyId,int locationId, DateTime startDate, DateTime endDate, String rentalStatus,decimal totalPrice)
+    public Rental(Guid userId, int vehicleId,int companyId,int locationId, DateTime startDate, DateTime endDate, String rentalStatus,decimal totalPrice,bool paid)
     {
         UserId = userId;
         VehicleId = vehicleId;
@@ -24,8 +24,11 @@ public class Rental
         EndDate = endDate;
         RentalStatus = "Pending";
         TotalPrice = totalPrice;
+        Paid = paid;
     }
-    
+
+    public void GoPaid() => Paid = true;
+
     public void Confirm() => RentalStatus = "Confirmed";
     public void Cancel() => RentalStatus = "Cancelled";
     public void Complete() => RentalStatus = "Completed";

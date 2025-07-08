@@ -15,7 +15,8 @@ public static class RentalTransform
             rental.StartDate,
             rental.EndDate,
             rental.RentalStatus,
-            rental.TotalPrice
+            rental.TotalPrice,
+            rental.Paid
         );
     
     
@@ -29,6 +30,7 @@ public static class RentalTransform
             resource.StartDate,
             resource.EndDate,
             "Pending",
-            0 // O lo que uses como valor inicial
+            0,
+            false// O lo que uses como valor inicial
         );
 }
