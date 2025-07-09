@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oIKfcESKm0BaptDvi9jBLg/ePgUYT6OurmR9/46HonQ=",
+  "Hash": "7O+20a3Uz/ebWMeVI714ObpQhvWlsCtXjO89OyjR9kw=",
   "Source": "VehicleService",
   "BasePath": "_content/VehicleService",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\1c6d67b3-d080-4d1b-b39c-2310c569bb6d.png"
+    },
+    {
+      "Identity": "C:\\BackEnd_IronCladRentals\\VehicleService\\wwwroot\\uploads\\457880aa-9fc1-4e2c-96c1-2829837d5fb4.png",
+      "SourceId": "VehicleService",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\BackEnd_IronCladRentals\\VehicleService\\wwwroot\\",
+      "BasePath": "_content/VehicleService",
+      "RelativePath": "uploads/457880aa-9fc1-4e2c-96c1-2829837d5fb4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\457880aa-9fc1-4e2c-96c1-2829837d5fb4.png"
     },
     {
       "Identity": "C:\\BackEnd_IronCladRentals\\VehicleService\\wwwroot\\uploads\\72b60de5-0cad-45bd-90ec-caa5dd4d8de7.jpg",

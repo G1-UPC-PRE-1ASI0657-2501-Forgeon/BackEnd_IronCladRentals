@@ -2,13 +2,13 @@
 
 public class Model
 {
-    public int Id { get; private set; }
-    public string CarModel { get; private set; } = null!;
+    public int Id { get; set; }
+    public string CarModel { get; set; } = null!;
     
-    public int BrandId { get; private set; }               // Foreign key
-    public Brand Brand { get; private set; } = null!;      // Navigation property
+    public int BrandId { get; set; }               // Foreign key
+    public Brand Brand { get; set; } = null!;      // Navigation property
 
-    protected Model() { }
+    public Model() { }
 
     public Model(string carModel, int brandId)
     {

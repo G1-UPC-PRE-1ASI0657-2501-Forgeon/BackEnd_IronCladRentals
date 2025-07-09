@@ -2,13 +2,12 @@
 
 public class Brand
 {
-    public int Id { get; private set; }
-    public string BrandName { get; private set; } = null!;
+    public int Id { get; set; }
+    public string BrandName { get; set; } = null!;
     
     public ICollection<Model> Models { get; private set; } = new List<Model>();
 
-
-    protected Brand() { }
+    public Brand() { }
 
     public Brand(string brandName)
     {

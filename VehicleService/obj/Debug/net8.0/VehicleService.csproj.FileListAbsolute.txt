@@ -360,3 +360,6 @@ C:\BackEnd_IronCladRentals\VehicleService\obj\Debug\net8.0\refint\VehicleService
 C:\BackEnd_IronCladRentals\VehicleService\obj\Debug\net8.0\VehicleService.pdb
 C:\BackEnd_IronCladRentals\VehicleService\obj\Debug\net8.0\VehicleService.genruntimeconfig.cache
 C:\BackEnd_IronCladRentals\VehicleService\obj\Debug\net8.0\ref\VehicleService.dll
+C:\BackEnd_IronCladRentals\VehicleService\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\BackEnd_IronCladRentals\VehicleService\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\BackEnd_IronCladRentals\VehicleService\bin\Debug\net8.0\StackExchange.Redis.dll

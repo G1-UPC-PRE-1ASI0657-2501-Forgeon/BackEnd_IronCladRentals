@@ -248,3 +248,7 @@ C:\BackEnd_IronCladRentals\AuthService\obj\Debug\net8.0\refint\AuthService.dll
 C:\BackEnd_IronCladRentals\AuthService\obj\Debug\net8.0\AuthService.pdb
 C:\BackEnd_IronCladRentals\AuthService\obj\Debug\net8.0\AuthService.genruntimeconfig.cache
 C:\BackEnd_IronCladRentals\AuthService\obj\Debug\net8.0\ref\AuthService.dll
+C:\BackEnd_IronCladRentals\AuthService\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\BackEnd_IronCladRentals\AuthService\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\BackEnd_IronCladRentals\AuthService\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\BackEnd_IronCladRentals\AuthService\bin\Debug\net8.0\StackExchange.Redis.dll

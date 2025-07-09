@@ -11,10 +11,10 @@ public record VehicleResource(
     string FuelType,
     string ImageUrl,
     int ModelId,
-    string ModelName,
+    string? ModelName,
     int BrandId,
-    string BrandName,
+    string? BrandName,
     int CompanyId,
-    string CompanyName,
-    PricingResource Pricing
+    string? CompanyName,
+    PricingResource? Pricing
 );

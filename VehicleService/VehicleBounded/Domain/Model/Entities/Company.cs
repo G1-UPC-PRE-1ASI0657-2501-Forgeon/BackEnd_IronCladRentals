@@ -2,16 +2,16 @@
 
 public class Company
 {
-    public int Id { get; private set; }
-    public string Name { get; private set; } = null!;
-    public string RUC { get; private set; }
+    public int Id { get; set; }
+    public string Name { get; set; } = null!;
+    public string RUC { get; set; }
     
     public Guid UserId { get; set; }
     public List<Location> Locations { get; private set; } = new();
 
-    protected Company() { }
+    public Company() { }
 
-    public Company(string name, Guid authUserId)
+    protected Company(string name, Guid authUserId)
     {
         Name = name;
         UserId = authUserId;

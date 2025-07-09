@@ -2,6 +2,7 @@ using System.Text;
 using IronClead.SharedKernel.Shared.Domain.Repositories;
 using IronClead.SharedKernel.Shared.Infraestructure.Interfaces.ASP.Configuration;
 using IronClead.SharedKernel.Shared.Infraestructure.Persistences.EFC.Repositories;
+using IronClead.SharedKernel.Shared.Infraestructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
@@ -86,6 +87,8 @@ builder.Services.AddScoped<IModelCommandService, ModelCommandService >();
 builder.Services.AddScoped<IPricingCommandService, PricingCommandService >();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork<AppDbContext>>();
 
+// Configurar Cache Services
+builder.Services.AddCacheServices(builder.Configuration);
 
 builder.Services.AddControllers(options =>
 {
