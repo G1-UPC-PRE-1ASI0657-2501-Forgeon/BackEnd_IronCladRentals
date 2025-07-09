@@ -299,7 +299,20 @@ public class RentalController(
 
         return Ok(result);
     }
+    
+    [Authorize]
+    [HttpGet("company/{companyId}/confirmed")]
+    public async Task<IActionResult> GetCompanyConfirmed(int companyId)
+    {
+        var rentals = await rentalQueryService.GetByCompanyIdAsync(companyId);
 
+        var result = rentals
+            .Where(r => r.RentalStatus.Equals("Confirmed", StringComparison.OrdinalIgnoreCase))
+            .Select(RentalTransform.ToResourceFromEntity);
 
+        return Ok(result);
+    }
+
+    
 
 }
